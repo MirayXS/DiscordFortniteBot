@@ -19,7 +19,7 @@ def updater():
     for file in files:
       if file.startswith("_"):
         continue
-      new_file = requests.get(f"{git}/modules/{file}")
+      new_file = requests.get(f"{git}/modules/{file}").text
       with open(f'modules/{file}','w') as f:
         f.write(new_file)
     new_config = requests.get(f"{git}/config.json").json()
