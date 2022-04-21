@@ -1,7 +1,9 @@
 {
-  "files":[
+  "files": [
     "commands/auto_shop.py",
+    "commands/check_update.py",
     "commands/creatorcode.py",
+    "commands/error.py",
     "commands/help.py",
     "commands/item.py",
     "commands/map.py",
