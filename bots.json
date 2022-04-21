@@ -1,6 +1,5 @@
 {
   "version": "0",
   "git_raw": "https://raw.githubusercontent.com/p-yttor4869/DiscordFortniteBot",
-  "git_branch": "main",
-  "module_paths":["commands","modules"]
+  "git_branch": "main"
 }
