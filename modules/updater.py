@@ -5,6 +5,7 @@ from replit import db
 from colorama import Fore
 
 def updater():
+  print(Fore.GREEN + "アップデートを確認中です..." + Fore.RESET)  
   with open('config.json','r') as f:
     config = json.load(f)
   with open('bots.json','r') as f:
@@ -50,4 +51,3 @@ def updater():
     print(Fore.GREEN + f"バージョン{new_version}へのアップデートが正常に完了しました" + Fore.RESET)
   else:
     print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)
-
