@@ -10,6 +10,7 @@
     "commands/news.py",
     "commands/playlist.py",
     "commands/shop.py",
-    "modules/updater.py"
+    "modules/updater.py",
+    "webserver.py"
   ]
 }
