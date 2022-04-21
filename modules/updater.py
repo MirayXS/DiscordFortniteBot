@@ -15,18 +15,15 @@ def updater():
   git = f"{bots['git_raw']}/{bots['git_branch']}"
   new_version = requests.get(f"{git}/bots.json").json()['version']
   if version != new_version:
-    print(Fore.GREEN + f"バージョン{new_version}へのアップデートを確認しました\nアップデートを実行します" + Fore.RESET)   
-    for file in os.listdir("modules"):
-      if file.startswith("_"):
-        continue
-      new_file = requests.get(f"{git}/modules/{file}").text
-      with open(f'modules/{file}','w') as f:
-        f.write(new_file)
-    for file in os.listdir("commands"):
-      if file.startswith("_"):
-        continue
-      new_file = requests.get(f"{git}/commands/{file}").text
-      with open(f'commands/{file}','w') as f:
+    print(Fore.GREEN + f"バージョン{new_version}へのアップデートを確認しました\nアップデートを実行します" + Fore.RESET)
+    new_files = requests.get(f"{git}/files.json").json()
+    with open('files.json','w') as f:
+      json.dump(new_files,f,indent=2)
+    with open('files.json','r') as f:
+      files = json.load(f)['files']   
+    for file in files:
+      new_file = requests.get(f"{git}/{file}").text
+      with open(f'{file}','w') as f:
         f.write(new_file)
     new_main = requests.get(f"{git}/main.py").text 
     with open('main.py','w') as f:
