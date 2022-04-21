@@ -26,7 +26,10 @@ def updater():
         continue
       new_file = requests.get(f"{git}/commands/{file}").text
       with open(f'commands/{file}','w') as f:
-        f.write(new_file)        
+        f.write(new_file)
+    new_main = requests.get(f"{git}/main.py").text 
+    with open('main.py','w') as f:
+      f.write(new_main)
     new_config = requests.get(f"{git}/config.json").json()
     for key in config:
       db[key] = str(config[key])
@@ -47,3 +50,4 @@ def updater():
     print(Fore.GREEN + f"バージョン{new_version}へのアップデートが正常に完了しました" + Fore.RESET)
   else:
     print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)
+
