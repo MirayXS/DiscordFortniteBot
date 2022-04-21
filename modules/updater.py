@@ -12,7 +12,7 @@ def updater():
 
   version = bots['version']  
   git = f"{bots['git_raw']}/{bots['git_branch']}"
-  new_version = requests.get(f"{git}/bot.json").json()['version']
+  new_version = requests.get(f"{git}/bots.json").json()['version']
   if version != new_version:
     print(Fore.GREEN + f"バージョン{new_version}へのアップデートを確認しました\nアップデートを実行します" + Fore.RESET)
     for path in bots['module_paths']:    
