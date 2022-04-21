@@ -34,12 +34,13 @@ def updater():
         del db[key]
       with open('config.json','w') as f:
         json.dump(config,f,indent=2)
-    with open('bot.json','r') as f:     
+    with open('bots.json','r') as f:     
       bot = json.load(f)
       bot['version'] = new_version
-    with open('bot.json','w') as f:
+    with open('bots.json','w') as f:
       json.dump(bot,f,indent=2)    
     print(Fore.GREEN + f"バージョン{new_version}へのアップデートが正常に完了しました" + Fore.RESET)
   else:
     print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)    
     
+
