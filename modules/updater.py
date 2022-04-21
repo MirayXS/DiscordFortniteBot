@@ -7,7 +7,7 @@ from colorama import Fore
 def updater():
   with open('config.json','r') as f:
     config = json.load(f)
-  with open('bot.json','r') as f:
+  with open('bots.json','r') as f:
     bots = json.load(f)
 
   version = bots['version']  
@@ -41,5 +41,5 @@ def updater():
       json.dump(bot,f,indent=2)    
     print(Fore.GREEN + f"バージョン{new_version}へのアップデートが正常に完了しました" + Fore.RESET)
   else:
-    print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)   
-
+    print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)    
+    
