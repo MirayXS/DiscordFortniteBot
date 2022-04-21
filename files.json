@@ -1,0 +1,13 @@
+{
+  "files":[
+    "commands/auto_shop.py",
+    "commands/creatorcode.py",
+    "commands/help.py",
+    "commands/item.py",
+    "commands/map.py",
+    "commands/news.py",
+    "commands/playlist.py",
+    "commands/shop.py",
+    "modules/updater.py"
+  ]
+}
