@@ -20,7 +20,7 @@ class check_update(commands.Cog):
     usage="check_update"
   )
   async def check_update(self,ctx):
-    embed=updater.command_check_updater()
+    embed=updater.command_check_update()
     await ctx.send(embed=embed)    
 
 def setup(bot):
