@@ -48,3 +48,4 @@ def updater():
     print(Fore.GREEN + f"バージョン{new_version}へのアップデートが正常に完了しました" + Fore.RESET)
   else:
     print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)
+
