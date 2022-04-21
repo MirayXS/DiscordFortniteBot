@@ -1,5 +1,6 @@
 import os
 import sys
+import traceback
 import platform
 import json
 from colorama import Fore
@@ -29,5 +30,14 @@ bot = commands.Bot(command_prefix=config['prefix'])
 @bot.event
 async def on_ready():
   print(Fore.GREEN + f"DiscordFortniteBot:{bots['version']}\nPython:{platform.python_version()}\nnextcord:{nextcord.__version__}\nBot:{bot.user}\nBotが起動しました" + Fore.RESET)
-  
+  for extension in os.listdir("commands"):
+    if extension.startswith("_"):
+      continue
+    try:
+      bot.load_extension(extension)
+      print(Fore.GREEN + f"{extension}を読み込みました" + Fore.RESET)
+    except:
+      print(Fore.RED + f"{extension}を読み込めませんでした\n{traceback.format_exc()}" + Fore.RESET)
+
 bot.run(config['token'])
+
