@@ -1,3 +1,4 @@
+import nextcord
 import json
 import os
 import requests
@@ -49,3 +50,18 @@ def updater():
   else:
     print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)
 
+def command_check_update():
+  with open('config.json','r') as f:
+    config = json.load(f)
+  with open('bots.json','r') as f:
+    bots = json.load(f)
+
+  version = bots['version']  
+  git = f"{bots['git_raw']}/{bots['git_branch']}"
+  new_version = requests.get(f"{git}/bots.json").json()['version']
+  color = nextcord.Colour(int(config['color'],16))  
+  if version != new_version:
+    embed=nextcord.Embed(title="アップデートを確認しました",description=f"{new_version}へのアップデートを確認しました\n適応する場合再起動してください",color=color)
+  else:
+    embed=nextcord.Embed(title="アップデートは見つかりませんでした",description=f"アップデートは見つかりませんでした\n現在のバージョン{version}は最新です",color=color)
+  return embed
