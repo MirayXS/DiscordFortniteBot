@@ -39,13 +39,15 @@ async def on_ready():
     if extension.startswith("_"):
       continue
     try:
-      bot.load_extension(extension)
-      print(Fore.GREEN + f"{extension}を読み込みました" + Fore.RESET)
+      bot.load_extension(f"commands.{extension.replace('.py','')}")
+      print(Fore.BLUE + f"{extension}を読み込みました" + Fore.RESET)
     except:
       print(Fore.RED + f"{extension}を読み込めませんでした\n{traceback.format_exc()}" + Fore.RESET)
-
+  presence = config['presence'].format(prefix=config['prefix'],server=len(bot.guilds))      
+  await bot.change_presence(activity=nextcord.Game(name=presence))    
+  if config['shop_channel'] == "":
+    print(Fore.YELLOW + "ショップチャンネルが設定されていません" + Fore.RESET)  
 try:
   bot.run(config['token'])
 except nextcord.errors.PrivilegedIntentsRequired:
-  print(Fore.RED + "Botのインテントが無効になっています\n下記URLから有効化してください\nhttps://discord.com/developers/applications\nわからない場合は\ndocs/intents.md\nを参考にしてみてください")
-
+  print(Fore.RED + "Botのインテントが無効になっています\n下記URLから有効化してください\nhttps://discord.com/developers/applications\nわからない場合は\nhttps://github.com/p-yttor4869/DiscordFortniteBot/blob/main/docs/intents.md\nを参考にしてみてください")
