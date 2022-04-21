@@ -1,5 +1,8 @@
 {
-  "token":"",
-  "prefix":"fn.",
-  "color":"0xffffff"
+  "token": "",
+  "presence":"{prefix}help",
+  "prefix": "fn.",
+  "color":"0xffffff",
+  "search_max":"5",
+  "shop_channel":""
 }
