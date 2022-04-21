@@ -14,14 +14,19 @@ def updater():
   git = f"{bots['git_raw']}/{bots['git_branch']}"
   new_version = requests.get(f"{git}/bots.json").json()['version']
   if version != new_version:
-    print(Fore.GREEN + f"バージョン{new_version}へのアップデートを確認しました\nアップデートを実行します" + Fore.RESET)
-    for path in bots['module_paths']:    
-      for file in os.listdir(path):
-        if file.startswith("_"):
-          continue
-        new_file = requests.get(f"{git}/modules/{file}").text
-        with open(f'modules/{file}','w') as f:
-          f.write(new_file)
+    print(Fore.GREEN + f"バージョン{new_version}へのアップデートを確認しました\nアップデートを実行します" + Fore.RESET)   
+    for file in os.listdir("modules"):
+      if file.startswith("_"):
+        continue
+      new_file = requests.get(f"{git}/modules/{file}").text
+      with open(f'modules/{file}','w') as f:
+        f.write(new_file)
+    for file in os.listdir("commands"):
+      if file.startswith("_"):
+        continue
+      new_file = requests.get(f"{git}/commands/{file}").text
+      with open(f'commands/{file}','w') as f:
+        f.write(new_file)        
     new_config = requests.get(f"{git}/config.json").json()
     for key in config:
       db[key] = str(config[key])
