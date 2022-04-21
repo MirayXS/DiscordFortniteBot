@@ -24,8 +24,13 @@ with open('bots.json','r') as f:
 if config['token'] == "":
   print(Fore.RED + "Botのトークンを入力してください" + Fore.RESET)
   sys.exit(1)
-  
-bot = commands.Bot(command_prefix=config['prefix'])
+
+bot = commands.Bot(
+  command_prefix=config['prefix'],
+  help_command=None,
+  case_insensitive=True,
+  intents = nextcord.Intents.all()  
+)
 
 @bot.event
 async def on_ready():
@@ -39,5 +44,8 @@ async def on_ready():
     except:
       print(Fore.RED + f"{extension}を読み込めませんでした\n{traceback.format_exc()}" + Fore.RESET)
 
-bot.run(config['token'])
+try:
+  bot.run(config['token'])
+except nextcord.errors.PrivilegedIntentsRequired:
+  print(Fore.RED + "Botのインテントが無効になっています\n下記URLから有効化してください\nhttps://discord.com/developers/applications\nわからない場合は\ndocs/intents.md\nを参考にしてみてください")
 
