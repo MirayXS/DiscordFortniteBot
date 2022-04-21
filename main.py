@@ -6,6 +6,8 @@ import traceback
 import platform
 import json
 from colorama import Fore
+
+import webserver
 from modules import updater
 
 updater.updater()
@@ -41,6 +43,7 @@ async def on_ready():
   if config['shop_channel'] == "":
     print(Fore.YELLOW + "ショップチャンネルが設定されていません" + Fore.RESET)  
 try:
+  webserver.start()
   bot.run(config['token'])
 except nextcord.errors.PrivilegedIntentsRequired:
   print(Fore.RED + "Botのインテントが無効になっています\n下記URLから有効化してください\nhttps://discord.com/developers/applications\nわからない場合は\nhttps://github.com/p-yttor4869/DiscordFortniteBot/blob/main/docs/intents.md\nを参考にしてみてください")
