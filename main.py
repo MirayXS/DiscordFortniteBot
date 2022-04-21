@@ -1,3 +1,5 @@
+import nextcord
+from nextcord.ext import commands
 import os
 import sys
 import traceback
@@ -5,8 +7,6 @@ import platform
 import json
 from colorama import Fore
 from modules import updater
-import nextcord
-from nextcord.ext import commands
 
 updater.updater()
 with open('config.json','r') as f:
