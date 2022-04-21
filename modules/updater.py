@@ -35,12 +35,10 @@ def updater():
       with open('config.json','w') as f:
         json.dump(config,f,indent=2)
     with open('bots.json','r') as f:     
-      bot = json.load(f)
-      bot['version'] = new_version
+      bots = json.load(f)
+      bots['version'] = new_version
     with open('bots.json','w') as f:
-      json.dump(bot,f,indent=2)    
+      json.dump(bots,f,indent=2)    
     print(Fore.GREEN + f"バージョン{new_version}へのアップデートが正常に完了しました" + Fore.RESET)
   else:
-    print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)    
-    
-
+    print(Fore.GREEN + "アップデートは見つかりませんでした" + Fore.RESET)
