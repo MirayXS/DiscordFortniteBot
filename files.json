@@ -11,6 +11,7 @@
     "commands/playlist.py",
     "commands/shop.py",
     "modules/updater.py",
-    "webserver.py"
+    "webserver.py",
+    "LICENSE"
   ]
 }
