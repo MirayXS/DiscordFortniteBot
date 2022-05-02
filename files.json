@@ -9,6 +9,7 @@
     "commands/map.py",
     "commands/news.py",
     "commands/playlist.py",
+    "commands/restart.py",
     "commands/shop.py",
     "modules/updater.py",
     "webserver.py",
