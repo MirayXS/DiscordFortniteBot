@@ -22,7 +22,7 @@ class restart(commands.Cog):
     description="Botを再起動できる",
     usage="restart"
   )
-  async def check_update(self,ctx):
+  async def restart(self,ctx):
     embed=nextcord.Embed(title="再起動",description="Botの再起動を実行します")
     await ctx.send(embed=embed)    
     os.execl(sys.executable,sys.executable,*sys.argv)
