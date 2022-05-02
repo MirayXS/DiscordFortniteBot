@@ -13,6 +13,7 @@
     "commands/shop.py",
     "modules/updater.py",
     "webserver.py",
+    "release.md",
     "LICENSE"
   ]
 }
