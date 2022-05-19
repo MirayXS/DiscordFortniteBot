@@ -7,3 +7,4 @@
 |0.0.1b2|files.jsonの編集|
 |0.0.1b3|restartコマンドを追加|
 |0.0.1b4|restartコマンドのバグを修正|
+|0.0.1b5|restartコマンドのembedのcolorの問題を修正|
