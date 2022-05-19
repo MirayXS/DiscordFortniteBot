@@ -23,7 +23,7 @@ class restart(commands.Cog):
     usage="restart"
   )
   async def restart(self,ctx):
-    embed=nextcord.Embed(title="再起動",description="Botの再起動を実行します")
+    embed=nextcord.Embed(title="再起動",description="Botの再起動を実行します",color=color)
     await ctx.send(embed=embed)    
     os.execl(sys.executable,sys.executable,*sys.argv)
  
