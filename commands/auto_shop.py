@@ -23,6 +23,7 @@ class auto_shop(commands.Cog):
       shop_hash = f.read()
     new_shop_hash = requests.get("https://api.nitestats.com/v1/shop/shophash").text
     if shop_hash != new_shop_hash:
+      await asyncio.sleep(120)
       channel = self.bot.get_channel(int(config['shop_channel']))      
       image = requests.get("https://api.nitestats.com/v1/shop/image").content
       embed=nextcord.Embed(title="アイテムショップ",color=color)
