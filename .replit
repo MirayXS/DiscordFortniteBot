@@ -1,2 +1,3 @@
 language="python3"
 run="python3 start.py"
+hidden = ["venv", ".config", "**/__pycache__", "**/.mypy_cache", "**/*.pyc"]
