@@ -14,6 +14,7 @@
     "modules/updater.py",
     "webserver.py",
     "release.md",
-    "LICENSE"
+    "LICENSE",
+    "requirements.txt"
   ]
 }
